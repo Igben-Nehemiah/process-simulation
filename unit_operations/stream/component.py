@@ -1,4 +1,9 @@
-class StreamComponent:
+"""
+Created by
+"""
+
+
+class Component:
     """
     This is a simple abstraction of a component in a stream
     """
