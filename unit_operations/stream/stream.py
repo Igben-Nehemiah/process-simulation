@@ -1,8 +1,11 @@
 """
 Created by: 
 """
+
 from unit_operations.stream.component import Component
 from unit_operations.unit_operation import UnitOperation
+
+from uuid import uuid1
 
 
 class Stream(UnitOperation):
@@ -20,6 +23,7 @@ class Stream(UnitOperation):
         self.__press = press
         self.__flow_rate = flow_rate
         self.__composition = composition
+        # self.id =
 
     @property
     def temp(self):
