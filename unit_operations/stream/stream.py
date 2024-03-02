@@ -5,8 +5,6 @@ Created by:
 from unit_operations.stream.component import Component
 from unit_operations.unit_operation import UnitOperation
 
-from uuid import uuid1
-
 
 class Stream(UnitOperation):
     """
@@ -23,7 +21,38 @@ class Stream(UnitOperation):
         self.__press = press
         self.__flow_rate = flow_rate
         self.__composition = composition
-        # self.id =
+
+        if not self._is_composition_sum_ok():
+            pass  # throw an exception and suggest normalisation
+
+    def at(self, temp: float | None = None,
+           pressure: float | None = None):
+        """
+        Defines new stream at temperature
+        """
+
+        if temp is None:
+            temp = self.temp
+        if pressure is None:
+            pressure = self.pressure
+        return Stream("", temp, pressure, self.flow_rate, self.composition)
+
+    def normalise(self) -> None:
+        """
+        This normalises the compositions of the stream
+        """
+
+    def no_of_components(self) -> int:
+        """
+        Simple method to get the number of components in
+        """
+        return len(self.__composition)
+
+    def rename_stream(self, name: str):
+        """
+        Util method to rename stream
+        """
+        self._name = name
 
     @property
     def temp(self):
@@ -32,20 +61,12 @@ class Stream(UnitOperation):
         """
         return self.__temp
 
-    @temp.setter
-    def temp(self, value: float) -> None:
-        self.__temp = value
-
     @property
     def pressure(self):
         """
         Pressure of stream.
         """
         return self.__press
-
-    @pressure.setter
-    def pressure(self, value: float) -> None:
-        self.__press = value
 
     @property
     def flow_rate(self):
@@ -69,18 +90,5 @@ class Stream(UnitOperation):
     def composition(self, value: dict[Component, float]) -> None:
         self.__press = value
 
-    # ---------------------
-
-    def _is_composition_sum_ok(self):
+    def _is_composition_sum_ok(self) -> bool:
         return (abs(1 - sum(self.__composition.values())) < 1e-4)
-
-    def normalise(self):
-        """
-        This normalises the compositions of the stream
-        """
-
-    def no_of_components(self):
-        """
-        Simple method to get the number of components in
-        """
-        return len(self.__composition)
