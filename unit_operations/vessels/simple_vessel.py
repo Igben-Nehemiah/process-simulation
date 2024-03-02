@@ -17,3 +17,8 @@ class SimpleVessel(UnitOperation):
         super().__init__(name)
         self.input_streams = input_streams
         self.output_steams = output_streams
+
+    def connect(self, stream: Stream) -> None:
+        """
+        Used to connect a stream to a vessel 
+        """
