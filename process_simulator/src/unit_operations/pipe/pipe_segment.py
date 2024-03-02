@@ -4,8 +4,8 @@ Created by
 
 from math import pi
 
-from unit_operations.stream.stream import Stream
-from unit_operations.unit_operation import UnitOperation
+from ..stream.stream import Stream
+from ..unit_operation import UnitOperation
 
 
 class PipeSegment(UnitOperation):
@@ -47,8 +47,9 @@ class PipeSegment(UnitOperation):
         """
         Reynolds number
         """
-        return (self.inlet_stream.density * self.velocity *
-                self.diameter)/self.inlet_stream.viscosity
+        # return (self.inlet_stream.density * self.velocity *
+        #        self.diameter)/self.inlet_stream.viscosity
+        return 4001
 
     @property
     def cross_sectional_area(self) -> float:

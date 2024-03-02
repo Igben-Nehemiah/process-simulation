@@ -26,7 +26,7 @@ class ColebrookWhite(FrictionFactor):
         def f_prime(x):
             return colebrook_white_derivative(x, self.rel_roughness, self.reynolds_no)
 
-        return newton_raphson(f, 0.01, f_prime)
+        return newton_raphson(f, 0.01, f_prime)[0]
 
 
 def colebrook_white(f, rel_roughness: float, reynolds_no: float) -> float:

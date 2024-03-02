@@ -2,8 +2,8 @@
 Created by
 """
 
-from unit_operations.stream.stream import Stream
-from unit_operations.unit_operation import UnitOperation
+from ..stream.stream import Stream
+from ..unit_operation import UnitOperation
 
 
 class CylindricalVessel(UnitOperation):

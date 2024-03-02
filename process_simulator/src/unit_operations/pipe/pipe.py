@@ -2,9 +2,9 @@
 Created by:
 """
 
-from unit_operations.pipe.pipe_segment import PipeSegment
-from unit_operations.stream.stream import Stream
-from unit_operations.unit_operation import UnitOperation
+from ..pipe.pipe_segment import PipeSegment
+from ..stream.stream import Stream
+from ..unit_operation import UnitOperation
 
 
 class Pipe(UnitOperation):

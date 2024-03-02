@@ -2,8 +2,8 @@
 Created by: 
 """
 
-from unit_operations.stream.component import Component
-from unit_operations.unit_operation import UnitOperation
+from ..stream.component import Component
+from ..unit_operation import UnitOperation
 
 
 class Stream(UnitOperation):
@@ -88,7 +88,7 @@ class Stream(UnitOperation):
 
     @composition.setter
     def composition(self, value: dict[Component, float]) -> None:
-        self.__press = value
+        self.__composition = value
 
     def _is_composition_sum_ok(self) -> bool:
         return (abs(1 - sum(self.__composition.values())) < 1e-4)

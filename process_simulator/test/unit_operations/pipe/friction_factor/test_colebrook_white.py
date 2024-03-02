@@ -3,7 +3,7 @@ Created by
 """
 import unittest
 
-from ..colebrook_white import ColebrookWhite
+from .....src.unit_operations.pipe.friction_factor.colebrook_white import ColebrookWhite
 
 
 class ColebrookWhiteTest(unittest.TestCase):
@@ -22,7 +22,9 @@ class ColebrookWhiteTest(unittest.TestCase):
             reynolds_no, roughness/diameter)
         friction_factor = friction_factor_corr.calculate()
 
-        self.assertTrue(friction_factor > 0)
+        self.assertNotEqual(friction_factor, 0.0)
+        self.assertGreater(friction_factor, 0)
+        print(friction_factor)
 
 
 if __name__ == '__main__':
