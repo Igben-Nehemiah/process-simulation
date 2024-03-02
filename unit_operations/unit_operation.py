@@ -2,6 +2,7 @@
 Created by ...
 """
 from abc import ABC
+from uuid import UUID, uuid4
 
 
 class UnitOperation(ABC):
@@ -11,4 +12,5 @@ class UnitOperation(ABC):
     """
 
     def __init__(self, name: str) -> None:
-        pass
+        self._name: str = name
+        self._id: UUID = uuid4()
