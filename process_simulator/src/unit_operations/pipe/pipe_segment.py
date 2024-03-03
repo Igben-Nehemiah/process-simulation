@@ -47,9 +47,9 @@ class PipeSegment(UnitOperation):
         """
         Reynolds number
         """
-        # return (self.inlet_stream.density * self.velocity *
-        #        self.diameter)/self.inlet_stream.viscosity
-        return 4001
+        # TODO: check phase
+        return (self.inlet_stream.liq_density * self.velocity *
+                self.diameter)/self.inlet_stream.dynamic_vis
 
     @property
     def cross_sectional_area(self) -> float:
