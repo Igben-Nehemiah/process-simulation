@@ -1,9 +1,8 @@
 """
 Created by:
 """
-
+from thermo import Stream  # type: ignore
 from ..pipe.pipe_segment import PipeSegment
-from ..stream.stream import Stream
 from ..unit_operation import UnitOperation
 
 
