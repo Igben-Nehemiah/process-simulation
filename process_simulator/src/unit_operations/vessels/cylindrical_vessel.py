@@ -2,7 +2,7 @@
 Created by
 """
 
-from ..stream.stream import Stream
+from thermo import Stream  # type: ignore
 from ..unit_operation import UnitOperation
 
 
